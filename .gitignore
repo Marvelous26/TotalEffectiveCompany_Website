@@ -1,0 +1,10 @@
+node_modules/
+.claude/
+.tmp/
+*.png
+*.jpg
+*.jpeg
+*.pdf
+screenshots/
+index-backup-before-option3.html
+test-option3.html

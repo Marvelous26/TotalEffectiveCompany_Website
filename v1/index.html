@@ -1,0 +1,1683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Total Effective Construction — Indianapolis, IN</title>
+  <meta name="description" content="Total Effective Construction — Structural framing specialists serving Indianapolis and the Midwest. Framing, construction, demolition, and site inspection." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── TOKENS ─────────────────────────────────────────── */
+    :root {
+      --navy-950: #0D1F3C;
+      --navy-900: #132540;
+      --navy-800: #1A2F52;
+      --navy-700: #1F3A64;
+      --navy-600: #254878;
+      --navy-500: #2C5590;
+
+      --gold-600: #A87020;
+      --gold-500: #C48A2A;
+      --gold-400: #D4A040;
+      --gold-300: #E4B858;
+      --gold-100: #F6EDD4;
+
+      --white:     #FFFFFF;
+      --text-body: #D8E6F5;
+      --text-muted:#A0B8D4;
+      --border:    rgba(196,138,42,0.18);
+      --border-hover: rgba(196,138,42,0.45);
+
+      /* spacing rhythm (8px base) */
+      --sp-1: 8px;  --sp-2: 16px; --sp-3: 24px;
+      --sp-4: 32px; --sp-5: 40px; --sp-6: 48px;
+      --sp-8: 64px; --sp-10: 80px; --sp-12: 96px;
+
+      /* type scale */
+      --text-xs: 0.75rem; --text-sm: 0.875rem;
+      --text-base: 1rem;  --text-lg: 1.125rem;
+      --text-xl: 1.25rem; --text-2xl: 1.5rem;
+      --text-3xl: 1.875rem; --text-4xl: 2.25rem;
+
+      /* z-index layers */
+      --z-base: 0; --z-card: 10; --z-sticky: 40; --z-modal: 100;
+    }
+
+    /* ── RESET ──────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Barlow', sans-serif;
+      font-size: var(--text-base);
+      line-height: 1.65;
+      background: var(--navy-900);
+      color: var(--text-body);
+      overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+    button { font-family: inherit; cursor: pointer; }
+    ul { list-style: none; }
+
+    /* ── SKIP LINK (accessibility) ─────────────────────── */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: var(--sp-2);
+      background: var(--gold-500);
+      color: var(--navy-900);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: var(--text-sm);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: var(--sp-1) var(--sp-2);
+      text-decoration: none;
+      z-index: calc(var(--z-modal) + 1);
+      transition: top 0.15s;
+    }
+    .skip-link:focus { top: var(--sp-2); }
+
+    /* ── FOCUS VISIBLE ─────────────────────────────────── */
+    :focus-visible {
+      outline: 2px solid var(--gold-400);
+      outline-offset: 3px;
+    }
+
+    /* ── BLUEPRINT TEXTURE ─────────────────────────────── */
+    .bp {
+      background-color: var(--navy-900);
+      background-image:
+        linear-gradient(rgba(196,138,42,0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(196,138,42,0.045) 1px, transparent 1px),
+        linear-gradient(rgba(196,138,42,0.016) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(196,138,42,0.016) 1px, transparent 1px);
+      background-size: 80px 80px, 80px 80px, 16px 16px, 16px 16px;
+    }
+    .bp-alt {
+      background-color: var(--navy-800);
+      background-image:
+        linear-gradient(rgba(196,138,42,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(196,138,42,0.05) 1px, transparent 1px),
+        linear-gradient(rgba(196,138,42,0.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(196,138,42,0.018) 1px, transparent 1px);
+      background-size: 80px 80px, 80px 80px, 16px 16px, 16px 16px;
+    }
+
+    /* ── SECTION UTILITIES ─────────────────────────────── */
+    .section { padding: var(--sp-12) 6%; }
+    .container { max-width: 1200px; margin: 0 auto; }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-2);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: var(--text-xs);
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold-400);
+      margin-bottom: var(--sp-2);
+    }
+    .eyebrow::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 2px;
+      background: var(--gold-500);
+      flex-shrink: 0;
+    }
+
+    .heading {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(var(--text-3xl), 4vw, 2.8rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      line-height: 1.05;
+      color: var(--white);
+    }
+
+    .subtext {
+      font-size: var(--text-base);
+      line-height: 1.75;
+      color: var(--text-muted);
+      max-width: 600px;
+    }
+
+    .gold-rule {
+      width: 52px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold-500), var(--gold-300));
+      margin: var(--sp-2) 0 var(--sp-4);
+    }
+
+    /* ── BUTTONS ───────────────────────────────────────── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--sp-1);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: var(--text-sm);
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 14px 32px;
+      min-height: 48px;
+      border: 2px solid transparent;
+      transition: background 0.2s ease-out, color 0.2s ease-out,
+                  border-color 0.2s ease-out, transform 0.15s ease-out;
+      cursor: pointer;
+      touch-action: manipulation;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn:active { transform: translateY(0); }
+
+    .btn-primary {
+      background: var(--gold-500);
+      color: var(--navy-900);
+    }
+    .btn-primary:hover { background: var(--gold-400); color: var(--navy-900); }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--gold-400);
+      border-color: rgba(196,138,42,0.35);
+    }
+    .btn-ghost:hover {
+      border-color: var(--gold-400);
+      color: var(--gold-300);
+    }
+
+    /* ── INLINE SVG ICON SIZE ───────────────────────────── */
+    .icon { width: 20px; height: 20px; flex-shrink: 0; }
+    .icon-lg { width: 28px; height: 28px; }
+    .icon-xl { width: 36px; height: 36px; }
+
+    /* ── NAV ────────────────────────────────────────────── */
+    #nav {
+      position: sticky;
+      top: 0;
+      z-index: var(--z-sticky);
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 6%;
+      background: rgba(11,28,56,0.96);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .nav-logo img {
+      height: 44px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-5);
+    }
+    .nav-links a {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: var(--text-sm);
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: var(--sp-1) 0;
+      transition: color 0.2s;
+      touch-action: manipulation;
+    }
+    .nav-links a:hover { color: var(--gold-400); }
+
+    .nav-cta {
+      margin-left: var(--sp-2);
+      padding: 10px 24px !important;
+      min-height: 44px;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 44px;
+      height: 44px;
+      background: none;
+      border: none;
+      padding: var(--sp-1);
+      touch-action: manipulation;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--text-body);
+      border-radius: 1px;
+      transition: transform 0.25s, opacity 0.2s;
+    }
+    .hamburger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .hamburger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* mobile nav */
+    .nav-mobile {
+      display: none;
+      position: absolute;
+      top: 68px;
+      left: 0;
+      right: 0;
+      background: var(--navy-950);
+      border-bottom: 1px solid var(--border);
+      padding: var(--sp-2) 0;
+      z-index: calc(var(--z-sticky) - 1);
+    }
+    .nav-mobile.open { display: block; }
+    .nav-mobile a {
+      display: block;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: var(--text-xl);
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: var(--sp-2) 6%;
+      transition: color 0.15s;
+      min-height: 48px;
+      display: flex;
+      align-items: center;
+    }
+    .nav-mobile a:hover { color: var(--gold-400); }
+    .nav-mobile .btn { margin: var(--sp-2) 6%; width: calc(100% - 12%); justify-content: center; }
+
+    /* ── HERO ───────────────────────────────────────────── */
+    #hero {
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: var(--sp-12) 6% var(--sp-8);
+      position: relative;
+      overflow: hidden;
+    }
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 90% 65% at 50% 38%, rgba(27,58,107,0.55) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-logo {
+      width: clamp(220px, 32vw, 380px);
+      height: auto;
+      margin-bottom: var(--sp-5);
+      position: relative;
+      filter: drop-shadow(0 6px 28px rgba(196,138,42,0.22));
+    }
+
+    .hero-location {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: var(--text-xs);
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold-400);
+      margin-bottom: var(--sp-3);
+    }
+    .hero-location svg { color: var(--gold-500); }
+
+    #hero h1 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(2.8rem, 9vw, 6.5rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      line-height: 0.95;
+      color: var(--white);
+      position: relative;
+      margin-bottom: var(--sp-1);
+    }
+    #hero h1 .gold { color: var(--gold-400); }
+
+    .hero-tagline {
+      font-size: clamp(var(--text-base), 2vw, var(--text-xl));
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin: var(--sp-4) auto var(--sp-5);
+      position: relative;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: var(--sp-2);
+      flex-wrap: wrap;
+      justify-content: center;
+      position: relative;
+      margin-bottom: var(--sp-8);
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border: 1px solid var(--border);
+      position: relative;
+    }
+    .hero-stat {
+      padding: var(--sp-3) var(--sp-4);
+      text-align: center;
+      border-right: 1px solid var(--border);
+    }
+    .hero-stat:last-child { border-right: none; }
+    .hero-stat strong {
+      display: block;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: var(--text-2xl);
+      font-weight: 800;
+      color: var(--gold-400);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .hero-stat span {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    /* ── GOLD BAND ───────────────────────────────────────── */
+    #band {
+      background: var(--gold-500);
+      padding: var(--sp-3) 6%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--sp-3);
+      overflow: hidden;
+    }
+    #band p {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(var(--text-base), 2vw, var(--text-xl));
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--navy-900);
+      text-align: center;
+    }
+    #band p strong { font-weight: 800; }
+    #band svg { color: var(--navy-900); opacity: 0.5; flex-shrink: 0; }
+
+    /* ── ABOUT ───────────────────────────────────────────── */
+    #about .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-10);
+      align-items: start;
+    }
+    .about-body p {
+      font-size: var(--text-base);
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: var(--sp-2);
+    }
+    .about-body p strong { color: var(--text-body); font-weight: 500; }
+
+    .info-card {
+      border: 1px solid var(--border);
+    }
+    .info-row {
+      display: flex;
+      align-items: stretch;
+      border-bottom: 1px solid var(--border);
+    }
+    .info-row:last-child { border-bottom: none; }
+    .info-icon {
+      width: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(196,138,42,0.07);
+      border-right: 1px solid var(--border);
+      flex-shrink: 0;
+      color: var(--gold-400);
+    }
+    .info-content {
+      padding: 14px var(--sp-3);
+    }
+    .info-content strong {
+      display: block;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold-500);
+      margin-bottom: 3px;
+    }
+    .info-content span {
+      font-size: var(--text-sm);
+      color: var(--text-body);
+    }
+    .info-content a {
+      color: var(--text-body);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .info-content a:hover { color: var(--gold-400); }
+
+    /* ── SERVICES ────────────────────────────────────────── */
+    #services .services-hd {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: var(--sp-4);
+      margin-bottom: var(--sp-8);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+
+    .svc-card {
+      background: var(--navy-800);
+      padding: var(--sp-5) var(--sp-4);
+      position: relative;
+      overflow: hidden;
+      transition: background 0.25s ease-out;
+    }
+    .svc-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: transparent;
+      transition: background 0.25s ease-out;
+    }
+    .svc-card:hover { background: var(--navy-700); }
+    .svc-card:hover::after { background: var(--gold-500); }
+    .svc-card.featured { background: var(--navy-700); }
+    .svc-card.featured::after { background: var(--gold-500); }
+
+    .svc-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: rgba(196,138,42,0.3);
+      margin-bottom: var(--sp-3);
+    }
+
+    .svc-icon {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(196,138,42,0.06);
+      border: 1px solid var(--border);
+      margin-bottom: var(--sp-3);
+      color: var(--gold-400);
+      flex-shrink: 0;
+    }
+
+    .svc-card h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: var(--text-xl);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--white);
+      margin-bottom: var(--sp-1);
+    }
+    .svc-card p {
+      font-size: var(--text-sm);
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+    .svc-badge {
+      display: inline-block;
+      margin-top: var(--sp-3);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-500);
+      border: 1px solid rgba(196,138,42,0.3);
+      padding: 3px 10px;
+    }
+
+    /* ── PROCESS ─────────────────────────────────────────── */
+    #process .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--sp-4);
+      position: relative;
+    }
+    #process .process-grid::before {
+      content: '';
+      position: absolute;
+      top: 26px;
+      left: 20%;
+      right: 20%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border) 20%, var(--border) 80%, transparent);
+    }
+
+    .step {
+      position: relative;
+    }
+    .step-num {
+      width: 52px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--navy-800);
+      border: 1px solid var(--border);
+      margin-bottom: var(--sp-3);
+      position: relative;
+      z-index: var(--z-card);
+      transition: border-color 0.2s;
+    }
+    .step-num span {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: var(--text-xl);
+      font-weight: 800;
+      color: var(--gold-400);
+    }
+    .step:hover .step-num { border-color: var(--gold-500); }
+
+    .step h4 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: var(--text-xl);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--white);
+      margin-bottom: var(--sp-1);
+    }
+    .step p {
+      font-size: var(--text-sm);
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* ── VALUES ──────────────────────────────────────────── */
+    #values .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--sp-4);
+    }
+
+    .val-card {
+      border: 1px solid var(--border);
+      padding: var(--sp-6) var(--sp-5);
+      position: relative;
+      background: rgba(27,58,107,0.08);
+      overflow: hidden;
+    }
+    .val-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold-500), var(--gold-300));
+      transition: width 0.4s ease-out;
+    }
+    .val-card:hover::after { width: 100%; }
+
+    .val-bg-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 4.5rem;
+      font-weight: 800;
+      color: rgba(196,138,42,0.07);
+      line-height: 1;
+      margin-bottom: var(--sp-2);
+      user-select: none;
+    }
+    .val-icon {
+      color: var(--gold-400);
+      margin-bottom: var(--sp-3);
+    }
+    .val-card h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: var(--text-2xl);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--gold-400);
+      margin-bottom: var(--sp-2);
+    }
+    .val-card p {
+      font-size: var(--text-sm);
+      color: var(--text-muted);
+      line-height: 1.75;
+    }
+
+    /* ── MIDWEST ─────────────────────────────────────────── */
+    #midwest .mw-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-10);
+      align-items: start;
+    }
+
+    .state-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border: 1px solid var(--border);
+    }
+    .state-row {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-2);
+      padding: 12px var(--sp-3);
+      border-bottom: 1px solid var(--border);
+      transition: background 0.2s;
+    }
+    .state-row:last-child { border-bottom: none; }
+    .state-row:hover { background: rgba(196,138,42,0.04); }
+    .state-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(196,138,42,0.3);
+      flex-shrink: 0;
+    }
+    .state-row.home .state-dot {
+      background: var(--gold-400);
+      box-shadow: 0 0 8px rgba(196,138,42,0.5);
+    }
+    .state-row span {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: var(--text-base);
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .state-row.home span { color: var(--gold-400); }
+
+    /* ── CONTACT ─────────────────────────────────────────── */
+    #contact .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-8);
+      align-items: start;
+    }
+
+    /* contact info side */
+    .contact-info-block { display: flex; flex-direction: column; gap: var(--sp-4); }
+
+    .contact-link {
+      display: flex;
+      align-items: stretch;
+      border: 1px solid var(--border);
+      text-decoration: none;
+      transition: background 0.2s, border-color 0.2s;
+      min-height: 72px;
+    }
+    .contact-link:hover {
+      background: rgba(196,138,42,0.04);
+      border-color: var(--border-hover);
+    }
+    .contact-link-icon {
+      width: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(196,138,42,0.07);
+      border-right: 1px solid var(--border);
+      flex-shrink: 0;
+      color: var(--gold-400);
+    }
+    .contact-link-body {
+      padding: var(--sp-2) var(--sp-3);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .contact-link-body strong {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold-500);
+      margin-bottom: 3px;
+    }
+    .contact-link-body span {
+      font-size: var(--text-sm);
+      color: var(--text-body);
+    }
+
+    /* contact form */
+    .contact-form-block {}
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-2);
+    }
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-group.full { grid-column: 1 / -1; }
+
+    .form-group label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .form-group label .req { color: var(--gold-500); margin-left: 2px; }
+
+    .form-input,
+    .form-textarea {
+      background: var(--navy-800);
+      border: 1px solid var(--border);
+      color: var(--text-body);
+      font-family: 'Barlow', sans-serif;
+      font-size: var(--text-base);
+      padding: 12px var(--sp-2);
+      width: 100%;
+      min-height: 48px;
+      transition: border-color 0.2s;
+      appearance: none;
+      -webkit-appearance: none;
+      border-radius: 0;
+      outline: none;
+    }
+    .form-input::placeholder,
+    .form-textarea::placeholder { color: rgba(138,160,188,0.4); }
+    .form-input:focus, .form-textarea:focus {
+      border-color: var(--gold-500);
+      outline: none;
+    }
+    .form-textarea { resize: vertical; min-height: 120px; padding-top: var(--sp-2); }
+
+    .form-submit {
+      margin-top: var(--sp-3);
+      width: 100%;
+    }
+
+    .form-note {
+      margin-top: var(--sp-2);
+      font-size: var(--text-xs);
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    #form-status {
+      display: none;
+      margin-top: var(--sp-2);
+      padding: var(--sp-2) var(--sp-3);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: var(--text-sm);
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: 1px solid;
+    }
+    #form-status.success {
+      display: block;
+      color: #6fcf97;
+      border-color: rgba(111,207,151,0.3);
+      background: rgba(111,207,151,0.06);
+    }
+    #form-status.error {
+      display: block;
+      color: #EB5757;
+      border-color: rgba(235,87,87,0.3);
+      background: rgba(235,87,87,0.06);
+    }
+
+    /* ── FOOTER ──────────────────────────────────────────── */
+    footer {
+      background: var(--navy-950);
+      border-top: 1px solid var(--border);
+      padding: var(--sp-5) 6%;
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: var(--sp-3);
+    }
+    .footer-logo img {
+      height: 36px;
+      width: auto;
+      opacity: 0.65;
+      transition: opacity 0.2s;
+    }
+    .footer-logo:hover img { opacity: 0.9; }
+    .footer-copy {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: var(--text-xs);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      text-align: center;
+    }
+    .footer-links {
+      display: flex;
+      gap: var(--sp-3);
+    }
+    .footer-links a {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: var(--text-xs);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+      touch-action: manipulation;
+    }
+    .footer-links a:hover { color: var(--gold-400); }
+
+    /* ── SCROLL ANIMATIONS ───────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+      .btn, .svc-card, .val-card, .contact-link,
+      .nav-links a, .hamburger span { transition: none; }
+      html { scroll-behavior: auto; }
+    }
+
+    /* ── RESPONSIVE ──────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      #process .process-grid { grid-template-columns: repeat(2, 1fr); }
+      #process .process-grid::before { display: none; }
+    }
+
+    @media (max-width: 768px) {
+      .section { padding: var(--sp-10) 5%; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .about-grid { grid-template-columns: 1fr !important; gap: var(--sp-6) !important; }
+      .contact-grid { grid-template-columns: 1fr !important; gap: var(--sp-6) !important; }
+      .mw-grid { grid-template-columns: 1fr !important; gap: var(--sp-6) !important; }
+      .values-grid { grid-template-columns: 1fr !important; }
+      .services-hd { flex-direction: column; align-items: flex-start; }
+      .hero-stats { grid-template-columns: repeat(2, 1fr); }
+      .hero-stat { border-right: none; border-bottom: 1px solid var(--border); }
+      .hero-stat:nth-child(2n) { border-right: none; }
+      .hero-stat:nth-child(odd) { border-right: 1px solid var(--border); }
+    }
+
+    @media (max-width: 600px) {
+      .services-grid { grid-template-columns: 1fr; }
+      #process .process-grid { grid-template-columns: 1fr; }
+      .form-grid { grid-template-columns: 1fr; }
+      .hero-actions { flex-direction: column; width: 100%; }
+      .hero-actions .btn { width: 100%; justify-content: center; }
+    }
+
+    @media (max-width: 375px) {
+      .hero-stats { grid-template-columns: 1fr; }
+      .hero-stat { border-right: none; }
+      .hero-stat:nth-child(odd) { border-right: none; }
+    }
+  </style>
+</head>
+
+<body class="bp">
+
+  <!-- Skip to main content (accessibility) -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ── NAVIGATION ─────────────────────────────────────── -->
+  <header>
+    <nav id="nav" role="navigation" aria-label="Main navigation">
+      <a href="#hero" class="nav-logo" aria-label="Total Effective Construction — home">
+        <img
+          src="Total Effective Construction LOGO.jpeg"
+          alt="TEC — Total Effective Construction"
+          width="100" height="44"
+        />
+      </a>
+
+      <!-- Desktop links -->
+      <ul class="nav-links" role="list">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#values">Values</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li>
+          <a href="#contact" class="btn btn-primary nav-cta" aria-label="Request a project quote">
+            Get a Quote
+          </a>
+        </li>
+      </ul>
+
+      <!-- Mobile toggle -->
+      <button
+        class="hamburger"
+        id="menuBtn"
+        aria-controls="mobileNav"
+        aria-expanded="false"
+        aria-label="Open navigation menu"
+      >
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <!-- Mobile nav drawer -->
+    <div id="mobileNav" class="nav-mobile" role="dialog" aria-label="Mobile navigation" aria-modal="false">
+      <a href="#about" class="nav-mobile-link">About</a>
+      <a href="#services" class="nav-mobile-link">Services</a>
+      <a href="#process" class="nav-mobile-link">Process</a>
+      <a href="#values" class="nav-mobile-link">Values</a>
+      <a href="#contact" class="nav-mobile-link">Contact</a>
+      <a href="#contact" class="btn btn-primary">Get a Quote</a>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ── HERO ───────────────────────────────────────────── -->
+    <section id="hero" class="bp" aria-labelledby="hero-heading">
+
+      <img
+        src="Total Effective Construction LOGO.jpeg"
+        alt="Total Effective Construction logo"
+        class="hero-logo"
+        width="380" height="200"
+        loading="eager"
+      />
+
+      <p class="hero-location" aria-label="Located in Indianapolis, Indiana">
+        <!-- map-pin icon -->
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+        </svg>
+        Indianapolis, Indiana &nbsp;·&nbsp; Est. 2025
+      </p>
+
+      <h1 id="hero-heading">
+        Total <span class="gold">Effective</span><br>Construction
+      </h1>
+
+      <p class="hero-tagline" aria-label="Company tagline">Built Right. Every Time.</p>
+
+      <div class="hero-actions">
+        <a
+          href="#contact"
+          class="btn btn-primary"
+          aria-label="Request a construction quote"
+        >
+          <!-- mail icon -->
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+          </svg>
+          Request a Quote
+        </a>
+        <a href="#services" class="btn btn-ghost" aria-label="View our services">
+          View Services
+        </a>
+      </div>
+
+      <div class="hero-stats" role="list" aria-label="Company overview stats">
+        <div class="hero-stat" role="listitem">
+          <strong>4</strong>
+          <span>Core Services</span>
+        </div>
+        <div class="hero-stat" role="listitem">
+          <strong>Indy</strong>
+          <span>Headquartered</span>
+        </div>
+        <div class="hero-stat" role="listitem">
+          <strong>MW</strong>
+          <span>Midwest Service Area</span>
+        </div>
+        <div class="hero-stat" role="listitem">
+          <strong>100%</strong>
+          <span>Committed</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── GOLD BAND ───────────────────────────────────────── -->
+    <div id="band" role="complementary" aria-label="Company specialty statement">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
+      </svg>
+      <p><strong>Structural Framing Specialists</strong> &nbsp;·&nbsp; Precision work. Delivered with integrity. &nbsp;·&nbsp; Indianapolis &amp; the Midwest</p>
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
+      </svg>
+    </div>
+
+    <!-- ── ABOUT ───────────────────────────────────────────── -->
+    <section id="about" class="section bp-alt" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="about-grid">
+
+          <div class="about-body reveal">
+            <p class="eyebrow" aria-hidden="true">Who We Are</p>
+            <h2 id="about-heading" class="heading">A Company Built<br>on Standards</h2>
+            <div class="gold-rule" aria-hidden="true"></div>
+            <p>Total Effective Construction is an Indianapolis-based construction company delivering precision work for businesses and developers across the Midwest. We are a new company with experienced hands and a disciplined approach to every project.</p>
+            <p>Our core specialty is <strong>structural framing</strong> — the most critical phase of any build, where precision isn't optional. We apply that same standard of detail to every service we offer.</p>
+            <p>We work with companies, developers, and property owners who need a contractor they can count on — one who shows up, communicates clearly, and delivers work worth being proud of.</p>
+          </div>
+
+          <div class="reveal reveal-delay-2">
+            <p class="eyebrow" aria-hidden="true">Company Details</p>
+            <div class="info-card" role="list" aria-label="Company contact information">
+
+              <div class="info-row" role="listitem">
+                <div class="info-icon" aria-hidden="true">
+                  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
+                  </svg>
+                </div>
+                <div class="info-content">
+                  <strong>Company</strong>
+                  <span>Total Effective Construction (TEC)</span>
+                </div>
+              </div>
+
+              <div class="info-row" role="listitem">
+                <div class="info-icon" aria-hidden="true">
+                  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+                  </svg>
+                </div>
+                <div class="info-content">
+                  <strong>Headquarters</strong>
+                  <span>7140 Heather Ridge Ct, Indianapolis, IN 46214</span>
+                </div>
+              </div>
+
+              <div class="info-row" role="listitem">
+                <div class="info-icon" aria-hidden="true">
+                  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l1.09-1.09a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                  </svg>
+                </div>
+                <div class="info-content">
+                  <strong>Phone</strong>
+                  <span><a href="tel:+14638679204" aria-label="Call us at (463) 867-9204">(463) 867-9204</a></span>
+                </div>
+              </div>
+
+              <div class="info-row" role="listitem">
+                <div class="info-icon" aria-hidden="true">
+                  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+                  </svg>
+                </div>
+                <div class="info-content">
+                  <strong>Email</strong>
+                  <span><a href="mailto:totaleffectiveconstructions@gmail.com" aria-label="Email us">totaleffectiveconstructions@gmail.com</a></span>
+                </div>
+              </div>
+
+              <div class="info-row" role="listitem">
+                <div class="info-icon" aria-hidden="true">
+                  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                  </svg>
+                </div>
+                <div class="info-content">
+                  <strong>Primary Specialty</strong>
+                  <span>Structural Framing — Residential &amp; Commercial</span>
+                </div>
+              </div>
+
+              <div class="info-row" role="listitem">
+                <div class="info-icon" aria-hidden="true">
+                  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                  </svg>
+                </div>
+                <div class="info-content">
+                  <strong>Service Area</strong>
+                  <span>Indianapolis Metro &amp; Midwest Region</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SERVICES ────────────────────────────────────────── -->
+    <section id="services" class="section bp" aria-labelledby="services-heading">
+      <div class="container">
+        <div class="services-hd reveal">
+          <div>
+            <p class="eyebrow" aria-hidden="true">What We Do</p>
+            <h2 id="services-heading" class="heading">Our Services</h2>
+            <div class="gold-rule" aria-hidden="true"></div>
+          </div>
+          <p class="subtext">Every job we take reflects our commitment to craftsmanship. The same standard of precision across every phase.</p>
+        </div>
+
+        <div class="services-grid" role="list" aria-label="Our construction services">
+
+          <article class="svc-card featured reveal" role="listitem">
+            <div class="svc-num">01 — Primary Specialty</div>
+            <div class="svc-icon" aria-hidden="true">
+              <!-- home/frame icon -->
+              <svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+                <line x1="3" y1="14" x2="21" y2="14"/><line x1="9" y1="9" x2="15" y2="9"/>
+              </svg>
+            </div>
+            <h3>Structural Framing</h3>
+            <p>The backbone of every building. Precision structural framing for residential and commercial projects — wall systems, roof structures, and floor assemblies built to code and built to last.</p>
+            <span class="svc-badge" aria-label="Core expertise badge">Core Expertise</span>
+          </article>
+
+          <article class="svc-card reveal reveal-delay-1" role="listitem">
+            <div class="svc-num">02</div>
+            <div class="svc-icon" aria-hidden="true">
+              <!-- tool/hammer icon -->
+              <svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+              </svg>
+            </div>
+            <h3>General Construction</h3>
+            <p>Full-scope construction management and execution. We coordinate and complete new construction projects keeping your schedule and budget on track throughout.</p>
+          </article>
+
+          <article class="svc-card reveal reveal-delay-2" role="listitem">
+            <div class="svc-num">03</div>
+            <div class="svc-icon" aria-hidden="true">
+              <!-- zap/demo icon -->
+              <svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+              </svg>
+            </div>
+            <h3>Demolition</h3>
+            <p>Controlled, safe, and efficient demolition services. Whether clearing an existing structure or selective demo — we execute cleanly and responsibly, ready for what comes next.</p>
+          </article>
+
+          <article class="svc-card reveal reveal-delay-3" role="listitem">
+            <div class="svc-num">04</div>
+            <div class="svc-icon" aria-hidden="true">
+              <!-- search + clipboard icon -->
+              <svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                <line x1="8" y1="11" x2="14" y2="11"/><line x1="11" y1="8" x2="11" y2="14"/>
+              </svg>
+            </div>
+            <h3>Site Inspection</h3>
+            <p>Pre-build site assessment and scope evaluation. Before the first nail goes in, we inspect the site, identify constraints, and give you a clear picture of what it takes to build right.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── PROCESS ─────────────────────────────────────────── -->
+    <section id="process" class="section bp-alt" aria-labelledby="process-heading">
+      <div class="container">
+        <div class="reveal" style="margin-bottom: var(--sp-8);">
+          <p class="eyebrow" aria-hidden="true">How We Work</p>
+          <h2 id="process-heading" class="heading">Our Process</h2>
+          <div class="gold-rule" aria-hidden="true"></div>
+          <p class="subtext">No surprises. No runaround. From your first call to the final walkthrough — every step is clear and professional.</p>
+        </div>
+
+        <div class="process-grid" role="list" aria-label="Our four-step process">
+
+          <div class="step reveal" role="listitem">
+            <div class="step-num" aria-hidden="true"><span>01</span></div>
+            <h4>Initial Contact</h4>
+            <p>Reach out by phone or email. Tell us about your project — scope, timeline, location. We respond promptly and listen first.</p>
+          </div>
+
+          <div class="step reveal reveal-delay-1" role="listitem">
+            <div class="step-num" aria-hidden="true"><span>02</span></div>
+            <h4>Site Assessment</h4>
+            <p>We visit the site, review conditions, and identify anything that could affect the project before work begins.</p>
+          </div>
+
+          <div class="step reveal reveal-delay-2" role="listitem">
+            <div class="step-num" aria-hidden="true"><span>03</span></div>
+            <h4>Transparent Quote</h4>
+            <p>A clear, itemized proposal. We explain every line. What we quote is what you pay — no hidden costs, no scope creep without discussion.</p>
+          </div>
+
+          <div class="step reveal reveal-delay-3" role="listitem">
+            <div class="step-num" aria-hidden="true"><span>04</span></div>
+            <h4>Execution</h4>
+            <p>We show up on schedule, communicate throughout, and deliver work we're proud to put our name on. Site left clean. Job done right.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── VALUES ──────────────────────────────────────────── -->
+    <section id="values" class="section bp" aria-labelledby="values-heading">
+      <div class="container">
+        <div class="reveal" style="margin-bottom: var(--sp-8);">
+          <p class="eyebrow" aria-hidden="true">What We Stand For</p>
+          <h2 id="values-heading" class="heading">Our Core Values</h2>
+          <div class="gold-rule" aria-hidden="true"></div>
+          <p class="subtext">These aren't marketing words. They're the standard we hold ourselves to on every job, for every client.</p>
+        </div>
+
+        <div class="values-grid" role="list" aria-label="Our core values">
+
+          <article class="val-card reveal" role="listitem">
+            <div class="val-bg-num" aria-hidden="true">01</div>
+            <div class="val-icon" aria-hidden="true">
+              <svg class="icon-xl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                <polyline points="9 12 11 14 15 10"/>
+              </svg>
+            </div>
+            <h3>Integrity</h3>
+            <p>We do what we say, and we say what we mean. Our agreements are honored, our communication is honest, and our work reflects our word. If something changes, you hear it from us first.</p>
+          </article>
+
+          <article class="val-card reveal reveal-delay-1" role="listitem">
+            <div class="val-bg-num" aria-hidden="true">02</div>
+            <div class="val-icon" aria-hidden="true">
+              <svg class="icon-xl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+              </svg>
+            </div>
+            <h3>Quality</h3>
+            <p>High standards aren't a differentiator — they're the baseline. Every frame we build, every site we touch reflects meticulous attention to craft. We take pride in work that lasts decades.</p>
+          </article>
+
+          <article class="val-card reveal reveal-delay-2" role="listitem">
+            <div class="val-bg-num" aria-hidden="true">03</div>
+            <div class="val-icon" aria-hidden="true">
+              <svg class="icon-xl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+            </div>
+            <h3>Reliability</h3>
+            <p>We show up. Every time. On schedule, prepared, and focused. In an industry where delays are common, our commitment to follow-through is one of the most valuable things we offer.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── MIDWEST ──────────────────────────────────────────── -->
+    <section id="midwest" class="section bp-alt" aria-labelledby="midwest-heading">
+      <div class="container">
+        <div class="mw-grid">
+
+          <div class="reveal">
+            <p class="eyebrow" aria-hidden="true">Where We Operate</p>
+            <h2 id="midwest-heading" class="heading">Rooted in Indy.<br>Serving the Midwest.</h2>
+            <div class="gold-rule" aria-hidden="true"></div>
+            <p class="subtext" style="margin-bottom: var(--sp-4);">Total Effective Construction is headquartered in Indianapolis — the geographic center of the Midwest. We are positioned and ready to serve commercial and residential projects throughout the region.</p>
+            <p class="subtext">If your project is in the Midwest and you need a contractor who brings precision and professionalism to the job site, we want to talk.</p>
+          </div>
+
+          <div class="reveal reveal-delay-2">
+            <div class="state-list" role="list" aria-label="States we serve">
+              <div class="state-row home" role="listitem">
+                <div class="state-dot" aria-hidden="true"></div>
+                <span>Indiana — Headquarters</span>
+              </div>
+              <div class="state-row" role="listitem">
+                <div class="state-dot" aria-hidden="true"></div>
+                <span>Illinois</span>
+              </div>
+              <div class="state-row" role="listitem">
+                <div class="state-dot" aria-hidden="true"></div>
+                <span>Ohio</span>
+              </div>
+              <div class="state-row" role="listitem">
+                <div class="state-dot" aria-hidden="true"></div>
+                <span>Michigan</span>
+              </div>
+              <div class="state-row" role="listitem">
+                <div class="state-dot" aria-hidden="true"></div>
+                <span>Kentucky</span>
+              </div>
+              <div class="state-row" role="listitem">
+                <div class="state-dot" aria-hidden="true"></div>
+                <span>Missouri</span>
+              </div>
+              <div class="state-row" role="listitem">
+                <div class="state-dot" aria-hidden="true"></div>
+                <span>Wisconsin</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CONTACT ─────────────────────────────────────────── -->
+    <section id="contact" class="section bp" aria-labelledby="contact-heading">
+      <div class="container">
+
+        <div class="reveal" style="margin-bottom: var(--sp-8);">
+          <p class="eyebrow" aria-hidden="true">Start a Conversation</p>
+          <h2 id="contact-heading" class="heading">Let's Talk About<br>Your Project</h2>
+          <div class="gold-rule" aria-hidden="true"></div>
+          <p class="subtext">Reach out directly or fill out the form below — we respond within 24 hours with honest answers and a clear path forward.</p>
+        </div>
+
+        <div class="contact-grid">
+
+          <!-- Contact details -->
+          <div class="contact-info-block reveal">
+
+            <a href="mailto:totaleffectiveconstructions@gmail.com?subject=Project%20Inquiry" class="contact-link" aria-label="Email us at totaleffectiveconstructions@gmail.com">
+              <div class="contact-link-icon" aria-hidden="true">
+                <svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+                </svg>
+              </div>
+              <div class="contact-link-body">
+                <strong>Email</strong>
+                <span>totaleffectiveconstructions@gmail.com</span>
+              </div>
+            </a>
+
+            <a href="tel:+14638679204" class="contact-link" aria-label="Call us at (463) 867-9204">
+              <div class="contact-link-icon" aria-hidden="true">
+                <svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l1.09-1.09a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+              </div>
+              <div class="contact-link-body">
+                <strong>Phone</strong>
+                <span>(463) 867-9204</span>
+              </div>
+            </a>
+
+            <div class="contact-link" style="cursor: default;" aria-label="Our address: 7140 Heather Ridge Ct, Indianapolis, IN 46214">
+              <div class="contact-link-icon" aria-hidden="true">
+                <svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+                </svg>
+              </div>
+              <div class="contact-link-body">
+                <strong>Address</strong>
+                <span>7140 Heather Ridge Ct, Indianapolis, IN 46214</span>
+              </div>
+            </div>
+
+            <div class="contact-link" style="cursor: default;" aria-label="Response time: within 24 hours">
+              <div class="contact-link-icon" aria-hidden="true">
+                <svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                </svg>
+              </div>
+              <div class="contact-link-body">
+                <strong>Response Time</strong>
+                <span>We reply to all inquiries within 24 hours</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Contact form -->
+          <div class="contact-form-block reveal reveal-delay-2">
+            <form id="contactForm" aria-label="Project inquiry form" novalidate>
+              <div class="form-grid">
+
+                <div class="form-group">
+                  <label for="fname">
+                    Name <span class="req" aria-hidden="true">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="fname"
+                    name="name"
+                    class="form-input"
+                    placeholder="Your full name"
+                    required
+                    autocomplete="name"
+                    aria-required="true"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="fcompany">Company / Organization</label>
+                  <input
+                    type="text"
+                    id="fcompany"
+                    name="company"
+                    class="form-input"
+                    placeholder="Optional"
+                    autocomplete="organization"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="femail">
+                    Email <span class="req" aria-hidden="true">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    id="femail"
+                    name="email"
+                    class="form-input"
+                    placeholder="you@company.com"
+                    required
+                    autocomplete="email"
+                    aria-required="true"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="fphone">Phone</label>
+                  <input
+                    type="tel"
+                    id="fphone"
+                    name="phone"
+                    class="form-input"
+                    placeholder="(XXX) XXX-XXXX"
+                    autocomplete="tel"
+                  />
+                </div>
+
+                <div class="form-group full">
+                  <label for="fmessage">
+                    Project Description <span class="req" aria-hidden="true">*</span>
+                  </label>
+                  <textarea
+                    id="fmessage"
+                    name="message"
+                    class="form-textarea"
+                    placeholder="Tell us about your project — location, scope, timeline, and any details that will help us respond effectively."
+                    required
+                    aria-required="true"
+                  ></textarea>
+                </div>
+
+              </div>
+
+              <div id="form-status" role="status" aria-live="polite"></div>
+
+              <button type="submit" class="btn btn-primary form-submit" aria-label="Submit your project inquiry">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                </svg>
+                Send Message
+              </button>
+
+              <p class="form-note">
+                Fields marked <span aria-label="required">*</span> are required. Submitting will open your email client with your message pre-filled.
+              </p>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── FOOTER ─────────────────────────────────────────── -->
+  <footer>
+    <div class="footer-inner">
+      <a href="#hero" class="footer-logo" aria-label="Back to top — Total Effective Construction">
+        <img
+          src="Total Effective Construction LOGO.jpeg"
+          alt="TEC logo"
+          width="80" height="36"
+          loading="lazy"
+        />
+      </a>
+      <p class="footer-copy">&copy; 2025 Total Effective Construction &mdash; Indianapolis, Indiana</p>
+      <div class="footer-links">
+        <a href="tel:+14638679204" aria-label="Call (463) 867-9204">(463) 867-9204</a>
+        <a href="mailto:totaleffectiveconstructions@gmail.com" aria-label="Email us">Email Us</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* ── MOBILE NAV ──────────────────────────────────────── */
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileNav = document.getElementById('mobileNav');
+
+    menuBtn.addEventListener('click', () => {
+      const isOpen = mobileNav.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    mobileNav.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        mobileNav.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    /* ── SCROLL REVEAL ───────────────────────────────────── */
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!prefersReduced) {
+      const revealEls = document.querySelectorAll('.reveal');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+      revealEls.forEach(el => observer.observe(el));
+    } else {
+      document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+    }
+
+    /* ── CONTACT FORM ────────────────────────────────────── */
+    const form = document.getElementById('contactForm');
+    const statusEl = document.getElementById('form-status');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const name = form.fname.value.trim();
+      const company = form.fcompany.value.trim();
+      const email = form.femail.value.trim();
+      const phone = form.fphone.value.trim();
+      const message = form.fmessage.value.trim();
+
+      // Basic validation
+      if (!name || !email || !message) {
+        statusEl.className = 'error';
+        statusEl.textContent = 'Please fill in all required fields.';
+        const firstEmpty = !name ? form.fname : !email ? form.femail : form.fmessage;
+        firstEmpty.focus();
+        return;
+      }
+
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailPattern.test(email)) {
+        statusEl.className = 'error';
+        statusEl.textContent = 'Please enter a valid email address.';
+        form.femail.focus();
+        return;
+      }
+
+      // Build mailto
+      const subject = encodeURIComponent('Project Inquiry — ' + name);
+      const body = encodeURIComponent(
+        'Name: ' + name + '\n' +
+        (company ? 'Company: ' + company + '\n' : '') +
+        'Email: ' + email + '\n' +
+        (phone ? 'Phone: ' + phone + '\n' : '') +
+        '\nProject Description:\n' + message
+      );
+
+      window.location.href =
+        'mailto:totaleffectiveconstructions@gmail.com?subject=' + subject + '&body=' + body;
+
+      statusEl.className = 'success';
+      statusEl.textContent = 'Message prepared — your email client should open now.';
+    });
+  </script>
+
+</body>
+</html>
